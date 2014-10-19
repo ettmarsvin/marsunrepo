@@ -1,19 +1,370 @@
-\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
-\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
-\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
-%\geometry{landscape}                		% Activate for for rotated page geometry
-\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
-\usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
-								% TeX will automatically convert eps --> pdf in pdflatex		
-\usepackage{amssymb}
-\setcounter{secnumdepth}{5}
+% \documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+% 
+% \usepackage{aaltothesis}
+% 
+% \usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+% \geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+% %\geometry{landscape}                		% Activate for for rotated page geometry
+% \usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+% \usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
+% 								% TeX will automatically convert eps --> pdf in pdflatex		
+% \usepackage{amssymb}
+% \setcounter{secnumdepth}{5}
+% 
+% \title{Experimenting with the brain in mind - how to avoid threat responses while creating something new?}
+% \author{Marianne Tenhula}
+% %\date{}							% Activate to display a given date or no date
+% 
+% \begin{document}
+% \maketitle
 
-\title{Experimenting with the brain in mind - how to avoid threat responses while creating something new?}
-\author{Marianne Tenhula}
-%\date{}							% Activate to display a given date or no date
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                %%
+%% Esimerkki opinnäytteen tekemisestä LaTeX:lla 20110314          %%
+%% Alkuperäinen versio Luis Costa,  muutokset Perttu Puska        %%
+%%                                                                %%
+%% Tähän esimerkkiin kuuluu tiedostot                             %%
+%%               opinnaytepohja.tex (versio 1.4)                  %%
+%%               aaltothesis.sty (versio 1.4)                     %%
+%%               kuva1.eps                                        %%
+%%               kuva2.eps                                        %%
+%%                                                                %%
+%%                                                                %%
+%% Kääntäminen                                                    %%
+%% latex:                                                         %%
+%%             $ latex opinnaytepohja                             %%
+%%             $ latex opinnaytepohja                             %%
+%%                                                                %%
+%%   Tuloksena on tiedosto opinnayte.dvi, joka                    %%
+%%   muutetaan ps-muotoon seuraavasti                             %%
+%%                                                                %%
+%%             $ dvips opinnaytepohja -o                          %%
+%%                                                                %%
+%% Selittävät kommentit on tässä esimerkissä varustettu           %%
+%% %%-merkeillä ja muutokset, joita käyttäjä voi tehdä,           %%
+%% on varustettu %-merkeillä                                      %%
+%%                                                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Käytä näitä, jos kirjoitat suomeksi
+%%
+%% Use these you write in Finnish
+%\documentclass[finnish,12pt]{article}
+
+
+%% Käytä näitä, jos kirjoitat englanniksi
+%%
+%% Uncomment these if you write in English
+\documentclass[english,12pt]{article}
+
+%% Tämä paketti on pakollinen
+%%
+%% This package is required
+\usepackage{aaltothesis}
+%\usepackage{harvard}
+%\usepackage[sorting=nyt,style=apa]{biblatex}
+%\let\cite\textcite{}
+
+%% Jos käytät latex-komentoa käännettäessä (oletusarvo) 
+%% kuvat kannattaa tehdä eps-muotoon. Älä käytä ps-muotoisia kuvia!
+%% Käytä seuraavaa latex-komennon ja eps-kuvien kanssa 
+%%
+%% Use this if you run latex and use eps-format pictures
+\usepackage[dvips]{graphicx}
+
+\graphicspath{{./}{./kuvat/}}
+%% Jos tääs käytät pdflatex-komentoa, 
+%% joka kääntää tekstin suoraan pdf-tiedostoksi ja kuvasi
+%% ovat esim. jpg-formaatissa tai pdf-formaatissa,   
+%% käytetään seuraavaa pakettia, kommentoi siis kommenttimerkki pois
+%% Huom! Tekstin marginaalit saattavat poiketa n. 2-5 mm
+%% suosituksesta, jos käytät pdflatex-komentoa!
+%% 
+%% Use this if you run pdflatex and use jpg/pdf-format pictures
+%% Note that margins are not correct with pdflatex output. 
+%\usepackage[pdftex]{graphicx} 
+
+%% Saat pdf-tiedoston viittaukset ja linkit kuntoon seuraavalla paketilla.
+%% Paketti toimii erityisen hyvin pdflatexin kanssa. 
+%%
+%% Use this if you want to get links and nice output with pdflatex
+%\usepackage[pdfpagemode=None,colorlinks=true,urlcolor=red,%
+%linkcolor=blue,citecolor=black,pdfstartview=FitH]{hyperref}
+
+%% Jos et jostain syystä tykkää käyttää
+%% edellistä hyperref pakettia, voit käyttää myös seuraavaa pakettia
+%% (tarvitaan lähinnä url-komennon määrittämiseen ja formatoimiseen)
+%%
+%% Use this if you do not like hyperref package - this
+%% defines url environment and formats it correctly
+\usepackage{url}
+
+%% Matematiikan fontteja, symboleja ja muotoiluja lisää, näitä tarvitaan usein 
+%%
+%% Use this if you write hard core mathematics, these are usually needed
+\usepackage{amsfonts,amssymb,amsbsy}  
+
+%% Make captions smaller than rest of the text, aligning to the start of the 
+%% text after ``Figure #:'', the label being bolded.
+\usepackage[format=hang,font={small,sl},labelfont={small,bf}]{caption}
+
+%%%%%%% Alphabetized list environment definition
+%\usepackage{datatool}
+
+%\newcommand{\sortitem}[2]{%
+%  \DTLnewrow{list}%
+%  \DTLnewdbentry{list}{label}{#1}%
+%  \DTLnewdbentry{list}{description}{#2}%
+%}
+%
+%\newenvironment{sortedlist}%
+%{%
+%  \DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}%
+%}%
+%{%
+%  \DTLsort{label}{list}%
+%  \begin{description}%
+%    \DTLforeach*{list}{\theLabel=label,\theDesc=description}{%
+%      \item[\theLabel] \theDesc
+%    }%
+%  \end{description}%
+%}
+%%%%% Alphabetized list ends
+
+%% Vaakasuunnan mitat, ÄLÄ KOSKE!
+\setlength{\hoffset}{-1in}
+\setlength{\oddsidemargin}{35mm}
+\setlength{\evensidemargin}{25mm}
+\setlength{\textwidth}{15cm}
+%% Pystysuunnan mitat, ÄLÄ KOSKE!
+\setlength{\voffset}{-1in}
+\setlength{\headsep}{7mm}
+\setlength{\headheight}{1em}
+\setlength{\topmargin}{25mm-\headheight-\headsep}
+\setlength{\textheight}{23cm}
+
+%% Super- and subscript in text mode
+\newcommand{\superscript}[1]{\ensuremath{^{\mathrm{#1}}}}
+\newcommand{\subscript}[1]{\ensuremath{_{\mathrm{#1}}}}
+
+%%%%%%% Command for including centered images
+\newcommand{\centergraphics}[1]{\centering\includegraphics{#1}}
+%%%%%%% Make captions in italics
+%\let\Oldcaption\caption
+%\renewcommand{\caption}[1]{\Oldcaption{\emph{#1}}}
+
+\newcommand{\spo}[0]{S\subscript{p}O\subscript{2} }
+
+\newcommand{\citeasperson}[1]{\cite{#1}}
+
+%% Kaikki mikä paperille tulostuu, on tämän jälkeen
+%%
+%% Output starts here
 \begin{document}
-\maketitle
+
+%% Korjaa vastaamaan korkeakouluasi
+%%
+%% Change the school field to describe your school 
+\university{aalto university}{aalto-yliopisto}
+\school{School of Science}{Perustieteiden korkeakoulu}
+
+%% Vain kandityölle: Korjaa seuraavat vastaamaan tutkinto-ohjelmaasi
+%%
+%% Only for B.Sc. thesis: Choose your degree programme. 
+%\degreeprogram{Electronics and electrical engineering}%
+%{Elektroniikka ja sähkötekniikka}
+%%
+
+%% Vain DI/M.Sc.- ja lisensiaatintyölle: valitse laitos, 
+%% professuuri ja sen professuurikoodi. 
+%%
+%% Only for M.Sc. and Licentiate thesis: Choose your department,
+%% professorship and professorship code. 
+\department{Osasto}%
+{Laitos}
+\professorship{Professuuri}{Professuuri}
+\code{Professuurikoodi}
+%%
+
+%% Valitse yksi näistä kolmesta
+%%
+%% Choose one of these:
+%\univdegree{BSc}
+\univdegree{MSc}
+%\univdegree{Lic}
+
+%% Oma nimi
+%%
+%% Should be self explanatory...
+\author{Marianne Tenhula}
+
+%% Opinnäytteen otsikko tulee vain tähän. Älä tavuta otsikkoa ja
+%% vältä liian pitkää otsikkotekstiä. Jos latex ryhmittelee otsikon
+%% huonosti, voit joutua pakottamaan rivinvaihdon \\ kontrollimerkillä.
+%% Muista että otsikkoja ei tavuteta! 
+%% Jos otsikossa on ja-sana, se ei jää rivin viimeiseksi sanaksi 
+%% vaan aloittaa uuden rivin.
+%% 
+%% Your thesis title. If the title is very long and the latex 
+%% does unsatisfactory job of breaking the lines, you will have to
+%% break the lines yourself with \\ control character. 
+%% Do not hyphenate titles.
+\thesistitle{Dipan otsikko}
+
+\place{Espoo}
+%% Kandidaatintyön päivämäärä on sen esityspäivämäärä! 
+%% 
+%% For B.Sc. thesis use the date when you present your thesis. 
+\date{date}
+
+%% Kandidaattiseminaarin vastuuopettaja tai diplomityön valvoja.
+%% Huomaa tittelissä "\" -merkki pisteen jälkeen, 
+%% ennen välilyöntiä ja seuraavaa merkkijonoa. 
+%% Näin tehdään, koska kyseessä ei ole lauseen loppu, jonka jälkeen tulee 
+%% hieman pidempi väli vaan halutaan tavallinen väli.
+%%
+%% B.Sc. or M.Sc. thesis supervisor 
+%% Note the "\" after the comma. This forces the following space to be 
+%% a normal interword space, not the space that starts a new sentence. 
+\supervisor{Prof.\ proffa}{Prof.\ proffa}
+
+%% Kandidaatintyön ohjaaja(t) tai diplomityön ohjaaja(t)
+%% 
+%% B.Sc. or M.Sc. thesis instructor(s)
+%\instructor{Prof. Pirjo Professori}{Prof. Pirjo Professori}
+%\instructor{D.Sc.\ (Tech.) Olli Ohjaaja}{TkT Olli Ohjaaja}
+\instructor{Tittelienglanniksi Ohjaajannimi}{Tittelisuomeksi Ohjaajannimi}
+
+%% Aaltologo: syntaksi: \uselogo{red|blue|yellow}{?|!|''}
+%% Logon kieli on sama kuin dokumentin kieli
+%%
+%% Aalto logo: syntax: \uselogo{red|blue|yellow}{?|!|''} 
+%% Logo language is set to be the same as the document language.
+\uselogo{red}{!}{elec}
+
+%% Tehdään kansilehti
+%%
+%% Create the coverpage
+\makecoverpage
+
+%
+%% English abstract, uncomment if you need one. 
+%% 
+%% Abstract keywords
+\keywords{avainsanoja}
+%% Abstract text
+\begin{abstractpage}[english]
+Abstrakti tähän
+\end{abstractpage}
+%% Note that 
+%% if you are writting your master's thesis in English place the English
+%% abstract first followed by the possible Finnish abstract
+%%
+%% Force new page so that English abstract starts from a new page
+%\newpage
+%% Suomenkielinen tiivistelmä
+%% 
+%% Finnish abstract
+%%
+%% Tiivistelmän avainsanat
+%\keywords{Pulssioksimetria, SpO2, regressioanalyysi}
+%% Tiivistelmän tekstiosa
+%\begin{abstractpage}[finnish]
+%  Tässä diplomityössä on kehitetty sulautettu ohjelmisto
+%  uudelle pulssioksimetriamittauspiirille ja analysoitu kyseisen
+%  piirin suorituskykyä tilastollisin menetelmin, mm. regressiomallien avulla.
+%  Tuloksena on saatu yleisesti pätevä analysointiprosessi ja analyysin 
+%  perusteella identifioitu piiristä suunnitteluvirheitä. Analyysin
+%  lopputuloksena on todettu, että piiri täyttää sille asetetut 
+%  suoritus\-kyky\-vaatimukset, kunhan löydetyt virheet korjataan
+%  seuraavalla prototyyppi\-kierroksella.
+%\end{abstractpage}
+
+%% Esipuhe 
+%%
+%% Preface
+%\mysection{Esipuhe}
+\mysection{Preface}
+Esipuhe tähän
+
+\vspace{5cm}
+\dateandplace{}
+
+\vspace{5mm}
+{\hfill Marianne Tenhula \hspace{1cm}}
+
+%% Pakotetaan varmuuden vuoksi esipuheen jälkeinen osa
+%% alkamaan uudelta sivulta
+%%
+%% Force new page after preface
+\newpage
+
+
+%% Sisällysluettelo
+%% addcontentsline tekee pdf-tiedostoon viitteen sisällysluetteloa varten
+%% 
+%% Table of contents. 
+\addcontentsline{toc}{section}{Contents}
+%% Tehdään sisällysluettelo
+%%
+%% Create it. 
+\tableofcontents
+
+%% Symbols and abbreviations
+\mysection{Symbols and abbreviations}
+\subsection*{Symbols}
+
+\begin{tabular}{ll}
+$\tau$						& Time period, interval
+\end{tabular}
+
+\subsection*{Operators}
+
+\begin{tabular}{ll}
+$\sum_i $                       & Sum over the index $i$ 
+\end{tabular}
+
+\subsection*{Abbreviations}
+
+\begin{tabular}{ll}
+A/D, ADC        & Analog to Digital, Analog to Digital Converter
+
+\end{tabular}
+
+%\begin{sortedlist}
+%\sortitem{A/D, ADC}{Analog to Digital, Analog to Digital Converter}
+%\sortitem{O\subscript{2}}{Oxygen}
+%\sortitem{CO\subscript{2}}{Carbon dioxide}
+%\sortitem{O\subscript{2}Hb}{Oxyhemoglobin}
+%\sortitem{Hb}{Hemoglobin}
+%\sortitem{RHb}{Reduced (deoxygenated) hemoglobin}
+%\end{sortedlist}
+
+
+%% Sivulaskurin viilausta opinnäytteen vaatimusten mukaan:
+%% Aloitetaan sivunumerointi arabialaisilla numeroilla (ja jätetään
+%% leipätekstin ensimmäinen sivu tyhjäksi, 
+%% ks. alla \thispagestyle{empty}).
+%% Pakotetaan lisäksi ensimmäinen varsinainen tekstisivu alkamaan 
+%% uudelta sivulta clearpage-komennolla. 
+%% clearpage on melkein samanlainen kuin newpage, mutta 
+%% flushaa myös LaTeX:n floatit 
+%% 
+%% Corrects the page numbering, there is no need to change these
+\cleardoublepage
+\storeinipagenumber
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %:Acknowledgements
 \section{Introduction}
@@ -584,38 +935,9 @@ Theory building process followed the principles of chosen research method, case 
 
 Confirmability refers to objectivity and neutrality of the thesis. The writer of the thesis has never been working on studied industry field and was not involved in the empirical case other than in a role of interviewer and observer. In the data analysis process other researchers were involved and the results were discussed at least among three different researchers. In the theoretical research? 
 
-\section{References}
-%
-%Bailey, C., A. 2007. A Guide to Qualitative Field Research. 2nd Ed. Sage Publications. Thousand Oaks, London.
-Bhattacherjee, Anol (2012). Social Science Research: Principles, Methods, and Practices. Online: Open Access Textbooks. Book 3. %Available at: http:// scholarcommons.usf.edu/oa_textbooks/3 (Accessed 13 August 2014)
-%Charmaz. K. (2006). Constructing grounded theory: A practical guide through qualitative analysis. Thousand Oaks, CA: Sage. 
-%Dubois, A., & Araujo, L. 2004. Research methods in industrial marketing studies. 
-%Rethinking marketing: Developing a new understanding of markets, 207-227
-%
-%Eisenhardt, K. 1989. Building Theories from Case Study Research. Academy of 
-%Management Review. Vol 14, No. 4: 532-550
-%
-%Hyde, K. F. 2000. Recognising deductive processes in qualitative research. 
-%Qualitative Market Research: An International Journal, 3(2), 82-90.
-%Lichtman, M. (2013). Qualitative research in education: A User?s Guide. Chapter 12: Making meaning from your data (3rd ed.). Virginia Tech, CA: Sage.
-
-%Morgan, G., & Smircich, L. (1980). The Case for Qualitative Research. Academy of Management Review, Vol. 5, No. 4, 491-500.
-
-%Ragin, C. C. 1992 " Casing" and the process of social inquiry1. What Is a Case?: 
-%Exploring the Foundations of Social Inquiry, 217. 
-%
-%Ragin, C. C. 1997 Turning the tables: How case-oriented research challenges 
-%variable-oriented research. Comparative social research, 16, 27-42.
-%Strauss, A., & Corbin, J. (1990). Basics of qualitative research: Grounded theory procedures and techniques (2nd ed.). Newbury Park, CA: Sage.
-%Yin, R.K. 1989. Case study research: Design and Methods (reviewed edition). 
-%Newbury Park, CA: Sage publications. 
-%Yin, R. (1994). Case Study Research: Design and Methods, 2nd Edition, SAGE Publications.
-%Yin, R.K. 1994. Case study research: Design and Methods (2nd edition). Newbury 
-%Park, CA: Sage publications
-
-
-
-
-%:Appendix
+\clearpage
+%% Lähdeluettelo
+\bibliographystyle{unsrt}
+\bibliography{references}
 
 \end{document}  
