@@ -1,5 +1,12 @@
 *.aux
 *.dvi
 *.log
-*.pdf
+dippa2.pdf
 
+dippa2-blx.bib
+*.bbl
+*.blg
+*.out
+*.xml
+dippa2.synctex.gz
+*.toc
