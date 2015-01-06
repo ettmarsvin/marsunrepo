@@ -98,7 +98,8 @@
   
 % add 4/9/2013: pager-app laskee vika lähdeluettelosivu
 %\renewcommand{\PAGES}{\pageref{pages-prelude}$+$\pageref{pages-end}$+$12}
-\renewcommand{\PAGES}{\pageref{pages-end}$+$\pagedifference{pages-end}{appendices-end}}
+%\renewcommand{\PAGES}{\pageref{pages-end}$+$\pagedifference{pages-end}{appendices-end}}
+\renewcommand{\PAGES}{\pageref{pages-prelude}$+$\pageref{pages-end}$+$\pagedifference{pages-end}{appendices-end}}
 \ProcessOptions
 
 % A shortcut command for using ifthenelse when you don't need the
