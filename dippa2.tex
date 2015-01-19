@@ -199,8 +199,8 @@ dashed=false, uniquename=init, backend=bibtex]{biblatex}
 \newcommand{\FTITLE}{Kokeilemalla kehittäminen ja oppiminen organisaatioissa}
 \newcommand{\SUBTITLE}{}
 \newcommand{\FSUBTITLE}{}
-\newcommand{\DATE}{January 7, 2015}
-\newcommand{\FDATE}{1. tammikuuta 2015}
+\newcommand{\DATE}{January 20, 2015}
+\newcommand{\FDATE}{20. tammikuuta 2015}
 
 % Supervisors and instructors
 % ------------------------------------------------------------------
@@ -331,7 +331,7 @@ dashed=false, uniquename=init, backend=bibtex]{biblatex}
 
 % removes section header from bibliography
 % if you want to change bibliography to, say, references, add [/refname] after {bibliography}
-\defbibheading{bibliography}{%
+\defbibheading{bibliography}[References]{%
   \section*{#1}%
   \markboth{}{}
 }
@@ -342,7 +342,7 @@ dashed=false, uniquename=init, backend=bibtex]{biblatex}
 % now where bibliography starts. If want to where bib graphy ends, move after printbibliography!
 \label{pages-end}
 
-\addcontentsline{toc}{chapter}{Bibliography} % Add bibliography to table of contents
+\addcontentsline{toc}{chapter}{References} % Add bibliography to table of contents
 \printbibliography
 
 % Start appendices from a new page
